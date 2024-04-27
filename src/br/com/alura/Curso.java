@@ -1,5 +1,5 @@
 package br.com.alura;
-
+import java.util.LinkedHashSet;
 import java.util.*;
 
 public class Curso {
@@ -7,7 +7,7 @@ public class Curso {
     private String nome;
     private String instrutor;
     private List<Aula> aulas = new ArrayList<Aula>();
-    private Set<Aluno> alunos = new HashSet<>();
+    private Set<Aluno> alunos = new LinkedHashSet<>();
 
     public Curso(String nome, String instrutor) {
         this.nome = nome;
@@ -47,4 +47,15 @@ public class Curso {
         return Collections.unmodifiableSet(alunos);
     }
 
+    public boolean estaMatriculado(Aluno aluno) {
+        return this.alunos.contains(aluno);
+    }
+
+    public Aluno buscaMatriculado(int numero) {
+        for (Aluno aluno : alunos) {
+             if (aluno.getNumeroDaMatricula() == numero)
+                 return aluno;
+        }
+        throw new NoSuchElementException("Matricula não encontrada" + numero);
+    }
 }

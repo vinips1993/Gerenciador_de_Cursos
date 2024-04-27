@@ -20,8 +20,22 @@ public class TestaCursoComAluno {
 
         System.out.println("Todos os alunos matriculados nesse curso: ");
         javaColecoes.getAlunos().forEach(a ->{
-            System.out.print(a);
+            System.out.println(a);
         });
+
+        System.out.println("O Aluno "+ a1 + "está matrículado? ");
+        System.out.println(javaColecoes.estaMatriculado(a1));
+
+        Aluno turini = new Aluno("Rodrigo Turini",34672);
+        System.out.println("E esse Turini está matriculado?");
+        System.out.println(turini);
+
+        System.out.println("O a1 é igual ao Turini?");
+        System.out.println(a1.equals(turini));
+
+        //Se Dois objetos são equals eles necessariamente necessitam ter o mesmo hashcode
+
+        System.out.println(a1.hashCode() == turini.hashCode());
 
     }
 }
